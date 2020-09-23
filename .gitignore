@@ -1,0 +1,17 @@
+.idea/
+__pycache__/
+**/.pytest_cache/
+output/
+result/
+log/
+*.npy
+*.pyc
+*.jpg
+*.txt
+*.png
+imgs/
+.vscode/
+sfz-txt/
+*.h
+*.pth
+pse/
