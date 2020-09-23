@@ -115,7 +115,7 @@ if __name__ == '__main__':
     model_path = 'output/PSENet_599.pth'
 
     # 初始化网络
-    net = PSENet(backbone='resnet50', pretrained=False, result_num=config.n)
+    net = PSENet(backbone='resnet18', pretrained=False, result_num=config.n)
     model = Pytorch_model(model_path, net=net, scale=1, gpu_id=0)
 
     img_path = '/home/cc/yyzz/123456/pse/yyzz/yyzz_res/img/*.jpg'
