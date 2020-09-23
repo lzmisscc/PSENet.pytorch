@@ -15,3 +15,6 @@ sfz-txt/
 *.h
 *.pth
 pse/
+*.h5
+*.onnx
+LICENSE
