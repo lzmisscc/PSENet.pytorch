@@ -39,8 +39,8 @@ for p in ["path"]:
         # StrToImg(str_img, os.path.join(path, img_name))
         points = []
         for i in x['shapes']:
-            # if i['label'] == '0':
-            #     continue
+            if i['label'] != '2':
+                continue
             if len(points) == 4:
                 point = list(map(str, map(round, [
                     i['points'][0][0], i['points'][0][1],

@@ -18,3 +18,5 @@ pse/
 *.h5
 *.onnx
 LICENSE
+*.zip
+*.rar

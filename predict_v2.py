@@ -103,7 +103,7 @@ if __name__ == '__main__':
     from utils.crop_rect import crop_rect
     from cnocr import CnOcr
     from pylab import mpl
-
+    import uuid
     os.environ['CUDA_VISIBLE_DEVICES'] = str('0')
 
     mpl.rcParams['font.sans-serif'] = ['kaiti']
@@ -120,8 +120,8 @@ if __name__ == '__main__':
 
     img_path = '/home/cc/yyzz/123456/pse/yyzz/yyzz_res/img/*.jpg'
     img_path = glob.glob(img_path)
-    for i in range(20):
-        random_path = random.choice(img_path)
+    for random_path in img_path:
+        # random_path = random.choice(img_path)
         preds, boxes_list, t, rects, img = model.predict(random_path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         print(random_path)
@@ -143,12 +143,12 @@ if __name__ == '__main__':
             cropped_img = crop_rect(img, rect, alph=0.05)
             # plt.imshow(cropped_img)
 
-            # cropped_imgs.append(cropped_img)
-            ocr_res = cn_ocr.ocr_for_single_line(cropped_img)
-            plt.xlabel(''.join(ocr_res))
-            plt.savefig('result/random_path/{}'.format(str(idx).zfill(5)) + '_' + os.path.basename(random_path))
-            print(u''.join(ocr_res))
-            # cv2.imwrite("img_crop_rot%d.jpg" % idx, cropped_img)
+            # # cropped_imgs.append(cropped_img)
+            # ocr_res = cn_ocr.ocr_for_single_line(cropped_img)
+            # plt.xlabel(''.join(ocr_res))
+            # plt.savefig('result/random_path/{}'.format(str(idx).zfill(5)) + '_' + os.path.basename(random_path))
+            # print(u''.join(ocr_res))
+            cv2.imwrite(f"gen_yyzz/{uuid.uuid4().hex}.jpg", cropped_img)
         # show_img(img, color=True)
         #
         # plt.show()
