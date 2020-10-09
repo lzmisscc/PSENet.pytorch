@@ -3,7 +3,7 @@
 # @Author  : zhoujun
 
 # data config
-trainroot = '/data/Workspace/Datasets/zhongben'
+trainroot = '1009/'
 testroot = '/data/ws/info/table_test/'
 output_dir = 'output/zhongben_resnet18'
 data_shape = 640

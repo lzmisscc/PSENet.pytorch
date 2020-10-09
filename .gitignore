@@ -21,3 +21,4 @@ LICENSE
 *.zip
 *.rar
 *.json
+!1.jpg
