@@ -111,7 +111,7 @@ class PSE_model:
             start = time.time()
             preds = self.net(tensor)[0]
             self.net.eval()
-            torch.onnx.export(self.net, tensor, 'pse.onnx', input_names=['input'], output_names=['output'],
+            torch.onnx.export(self.net, tensor, 'pse_v2.onnx', input_names=['input'], output_names=['output'],
                               opset_version=11, verbose=True,
                               dynamic_axes={"input": {0: "b", 1: "c", 2: "h", 3: "w"},
                                             "output": {0: "b", 1: "c", 2: "h", 3: "w"}})
@@ -180,7 +180,7 @@ if __name__ == '__main__':
 
     MAX_LEN = 2280
 
-    text_detection_model = 'output/zhongben_resnet18/final.pth'
+    text_detection_model = 'output/PSENet_597.pth'
     text_detection_device = None
     text_detection = PSE_model(model_path=text_detection_model, gpu_id=text_detection_device)
     img = 'imgs/img_98.jpg'

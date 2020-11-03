@@ -51,10 +51,10 @@ def main(model_path, backbone, scale, path, save_path, gpu_id):
 
 
 if __name__ == '__main__':
-    os.environ['CUDA_VISIBLE_DEVICES'] = str('0')
+    os.environ['CUDA_VISIBLE_DEVICES'] = str('1')
     backbone = 'resnet18'
     scale = 1
-    model_path = 'output/PSENet_599.pth'
+    model_path = 'output/PSENet_597.pth'
     # model_path = 'pruner.pth'
     # data_path = '/home/cc/eval/img'
     # gt_path = '/home/cc/eval/txt'
