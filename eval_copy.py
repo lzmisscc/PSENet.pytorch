@@ -53,7 +53,7 @@ def main(model_path, backbone, scale, path, save_path, gpu_id, gt_path=None):
                 os.path.join(gt_path, os.path.basename(save_name)),
                 delimiter=','
             )
-            search_bbox(pre=boxes_list, gt=gt_bbox)
+            boxes_list = search_bbox(pre=boxes_list, gt=gt_bbox)
         np.savetxt(save_name, boxes_list.reshape(-1, 8),
                    delimiter=',', fmt='%d')
     print('fps:{}'.format(total_frame / total_time))
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = str('0')
     backbone = 'resnet18'
     scale = 1
-    model_path = 'output/PSENet_599.pth'
+    model_path = 'output/lsz/PSENet_599.pth'
     # model_path = 'pruner.pth'
     # data_path = '/home/cc/eval/img'
     # gt_path = '/home/cc/eval/txt'
@@ -104,12 +104,12 @@ if __name__ == '__main__':
     # gt_path = '/home/cc/20200730jixu/pse/结案审批表/txt'
     # data_path = '/home/cc/20200730jixu/pse/结案审批表/img'
     # gt_path = '/home/cc/20200730jixu/pse/结案审批表/txt'
-    # data_path = '/home/cc/yyzz/123456/pse/yyzz/lsz_res/img'
-    # gt_path = '/home/cc/yyzz/123456/pse/yyzz/lsz_res/txt'
+    data_path = '/home/cc/yyzz/123456/pse/yyzz/lsz_res/img'
+    gt_path = '/home/cc/yyzz/123456/pse/yyzz/lsz_res/txt'
     # data_path = '/home/cc/yyzz/123456/pse/yyzz/yyzz_res/img'
     # gt_path = '/home/cc/yyzz/123456/pse/yyzz/yyzz_res/txt'
-    data_path = '1009/img'
-    gt_path = '1009/txt'
+    # data_path = '1009/img'
+    # gt_path = '1009/txt'
     save_path = './result/'
     gpu_id = 0
     print('backbone:{},scale:{},model_path:{}'.format(
