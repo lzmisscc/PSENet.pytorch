@@ -183,6 +183,6 @@ if __name__ == '__main__':
     text_detection_model = 'output/lsz/PSENet_599.pth'
     text_detection_device = None
     text_detection = PSE_model(model_path=text_detection_model, gpu_id=text_detection_device)
-    img = 'imgs/img_98.jpg'
+    img = '/.tmp/pycharm_project_627/sfz-txt/gt-img/155120885_1.jpg'
     img = cv2.imread(img)
     text_detection.predict(img, 1.0, 1.0)

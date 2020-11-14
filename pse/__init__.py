@@ -6,8 +6,8 @@ import torch
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
-if subprocess.call(['make', '-C', BASE_DIR]) != 0:  # return value
-    raise RuntimeError('Cannot compile pse: {}'.format(BASE_DIR))
+# if subprocess.call(['make', '-C', BASE_DIR]) != 0:  # return value
+#     raise RuntimeError('Cannot compile pse: {}'.format(BASE_DIR))
 
 def pse_warpper(kernals, min_area=5):
     '''
@@ -63,4 +63,4 @@ def decode(preds, scale, threshold=0.7311):
         rect = cv2.minAreaRect(points)
         bbox = cv2.boxPoints(rect)
         bbox_list.append([bbox[1], bbox[2], bbox[3], bbox[0]])
-    return pred, np.array(bbox_list)
+    return pred, np.array(bbox_list), False
